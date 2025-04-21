@@ -3,7 +3,7 @@ from backtrack import backtrack
 from func import *
 from forbiddenfactors import *
 
-quiet=True
+quiet = True
 
 # Section 3.1, 1st paragraph
 # -----------------------------------------------------------------------------
@@ -75,11 +75,11 @@ assert w is None and l == 105, "Section 3.2, Table 2, 2212: claim of maximum len
 
 # Proposition 3.6
 # -----------------------------------------------------------------------------
-preconditions = [
+postconditions = [
     RichnessCondition(),
     lambda w, a: power_suffix(w + a, 7, 3)
 ]
-w, l = backtrack(1000, 2, preconditions, func=transducer, quiet=quiet)
+w, l = backtrack(1000, 2, [], postconditions, func=transducer, quiet=quiet)
 assert w is None and l == 18, "Section 3.2, Proposition 3.6: claim of maximum length 18 fails."
 
 # Lemma 3.10
