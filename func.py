@@ -19,10 +19,13 @@ def f_hat(w, a):
     return images[int(a)]
 
 def g(w,a):
-    images=["20","21","2"]
+    images = ["20", "21", "2"]
     return images[int(a)]
 
-def apply(func,w):  # Returns the image of w under func
-    if len(w)==0:
+def apply(func, w):
+    """Returns the image of w under func."""
+
+    if len(w) == 0:
         return ""
-    return apply(func,w[:-1])+func(w[:-1],w[-1])
+    return apply(func, w[:-1]) + func(w[:-1], w[-1])
+
