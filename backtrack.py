@@ -14,8 +14,8 @@ def backtrack(n, k, preconditions, postconditions=None, func=None, prefix="", qu
     quiet: Display progress or not.
 
     Returns:
-    u: A word u of length n satisfying the conditions if exists, None otherwise.
-    len(u). Length of the longest u satisfying the conditions that was found.
+    u: A word u of length n satisfying the conditions if exists. None otherwise.
+    len(u): Length of the longest u satisfying the conditions that was found.
     """
 
     def config_conditions(conditions):
