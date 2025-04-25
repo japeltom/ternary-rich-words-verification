@@ -77,6 +77,7 @@ assert w is None and l == 18, "Section 3.2, Proposition 3.6: claim of maximum le
 
 # Claim 3.18
 # -----------------------------------------------------------------------------
+F_phi = ["00", "11", "22", "33", "01", "20", "31"]
 preconditions = [
     ForbiddenSuffixCondition(F_phi),
     lambda w, a: power_suffix(w + a, 3, 1)
@@ -115,3 +116,4 @@ w, l = backtrack(1000, 2, preconditions=preconditions, postconditions=postcondit
 assert w is None and l == 11, "Section 3.4, Claim 3.20: claim of maximum length 11 fails."
 
 print("All backtracking claims verified successfully.")
+
