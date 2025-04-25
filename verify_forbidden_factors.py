@@ -51,7 +51,11 @@ F = F1 | F2 | F3 | F4
 for w in F:
     exists, i, a, b = forbidden_factor_check(w, *F[w], quiet=quiet)
     if not exists:
-        print(f"The word f^n(awb), where w = {w}, a = {a}, b = {b}, and n = {i}, has no factor ({F[w][1]})^{F[w][2]}/{F[w][3]} as claimed.")
+        if i < F[w][0]:
+            print(f"FAILURE: The word f^n(awb), where w = {w}, a = {a}, b = {b}, and n = {i}, is not 16/7-free.")
+        else:
+            print(f"FAILURE: The word f^n(awb), where w = {w}, a = {a}, b = {b}, and n = {i}, has no factor ({F[w][1]})^{F[w][2]}/{F[w][3]} as claimed.")
+        raise SystemExit
     if not quiet:
         print(f"The word f^n(awb), where w = {w}, a in {F[w][4]}, and b in {F[w][5]}, has factor ({F[w][1]})^{F[w][2]}/{F[w][3]} for all n >= {F[w][0]}.")
 

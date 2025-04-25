@@ -61,12 +61,13 @@ def forbidden_factor_check(w, n, BadPeriod, BadTop, BadBottom, Prefixes=[""], Su
             for i in range(n):
                 # First we check that tau(g(f^i(awb))) has a factor of exponent
                 # at least 16/7. We do this only if quiet = False.
-                if not quiet:
-                    u = apply(g, word)
-                    v = apply(transducer, u)
-                    ce_top, ce_bottom, ce_factor = critical_exponent(v)
-                    # Uncomment to see the factor of exponent at least 16/7.
-                    #print(ce_top, ce_bottom, ce_factor)
+                u = apply(g, word)
+                v = apply(transducer, u)
+                ce_top, ce_bottom, ce_factor = critical_exponent(v)
+                if ce_top*7 < ce_bottom*16:
+                    return False, i, a, b
+                # Uncomment to see the factor of exponent at least 16/7.
+                #print(ce_top, ce_bottom, ce_factor)
 
                 word = apply(f_hat, word)
 
