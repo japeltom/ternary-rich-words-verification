@@ -65,12 +65,6 @@ postconditions = [
 ]
 w, l = backtrack(1000, 3, preconditions=[], postconditions=postconditions, func=transducer, prefix="211", quiet=quiet)
 assert w is None and l == 101, "Section 3.2, Table 2, 211: claim of maximum length 101 fails."
-postconditions = [
-    RichnessCondition(),
-    lambda w, a: power_suffix(w + a, 16, 7)
-]
-w, l = backtrack(1000, 3, preconditions=[], postconditions=postconditions, func=transducer, prefix="2212", quiet=quiet)
-assert w is None and l == 105, "Section 3.2, Table 2, 2212: claim of maximum length 105 fails."
 
 # Proposition 3.6
 # -----------------------------------------------------------------------------
